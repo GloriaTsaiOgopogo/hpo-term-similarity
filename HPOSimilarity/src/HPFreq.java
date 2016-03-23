@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.Map.Entry;
 
 
 public class HPFreq {
@@ -42,13 +44,15 @@ public class HPFreq {
 		String file3 = "input/hpo_pair.txt";
 		String file4 = "input/hpo_term.txt";
 		String outfile = "output/HPOFreq.txt";
+		String outfile1 = "output/hpo_term50.txt";
 
 		BufferedReader br1 = new BufferedReader(new FileReader(new File(file1)));
 		BufferedReader br2 = new BufferedReader(new FileReader(new File(file2)));
 		BufferedReader br3 = new BufferedReader(new FileReader(new File(file3)));
 		BufferedReader br4 = new BufferedReader(new FileReader(new File(file4)));
 		BufferedWriter bw = new BufferedWriter(new FileWriter(new File(outfile)));
-
+		BufferedWriter bw1 = new BufferedWriter(new FileWriter(new File(outfile1)));
+		
 		//hpoAnnoNum存放每个hpo被标注的次数，hpo不存在表示未被标注过
 		HashMap<String,Integer> hpoAnnoNum = new HashMap<String, Integer>();
 		String line = "";
@@ -62,6 +66,12 @@ public class HPFreq {
 				hpoAnnoNum.put(hpo, 1);
 			}
 		}
+		for(Entry<String, Integer> entry:hpoAnnoNum.entrySet()){
+			if(entry.getValue()>=50){
+				bw1.write(entry.getKey()+"\r\n");
+			}
+		}
+		bw1.close();
 		
 		//hpoChild存放每个hpo的孩子节点，hpo找不到表示叶节点无孩子
 		HashMap<String,HashSet<String>> hpoChild = new HashMap<String, HashSet<String>>();

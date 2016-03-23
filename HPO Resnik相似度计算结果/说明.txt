@@ -1,0 +1,2 @@
+hpo_term50.txt文件存放了所有不小于50个基因关联的hpo term
+HPOSim.txt文件存放了上述hpo term之间的Resnik相似度
