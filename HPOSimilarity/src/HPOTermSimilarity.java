@@ -72,7 +72,7 @@ public class HPOTermSimilarity {
 		BufferedReader br3 = new BufferedReader(new FileReader(new File(file3)));
 		BufferedWriter bw = new BufferedWriter(new FileWriter(new File(ofile)));
 		
-		//存放所有的标注大于等于50的hpo term
+		//存放所有11479个hpo中标注大于等于50的hpo term
 		ArrayList<String> hpoTerms = new ArrayList<String>();
 		String line = "";
 		while((line=br2.readLine())!=null){
@@ -80,7 +80,7 @@ public class HPOTermSimilarity {
 		}
 		br2.close();
 		
-		//存放每个hpo t的p(t)
+		//存放11479个hpo每个hpo term的p(term)
 		HashMap<String,Double> hpoFreq = new HashMap<String, Double>();
 		line = "";
 		while((line=br3.readLine())!=null){
@@ -105,7 +105,8 @@ public class HPOTermSimilarity {
 			for(int j=i+1;j<hpoTerms.size();j++){
 				double sim = getGOPairSim(hpoTerms.get(i),hpoTerms.get(j),hpoTree,hpoFreq);
 				bw.write(hpoTerms.get(i) + "\t" + hpoTerms.get(j)+ "\t" + df.format(sim) + "\r\n");
-				System.out.println(c++);
+				System.out.println(c);
+				c++;
 			}
 		}
 		bw.close();
