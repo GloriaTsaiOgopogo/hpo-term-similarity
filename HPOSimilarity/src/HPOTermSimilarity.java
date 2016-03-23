@@ -52,8 +52,8 @@ public class HPOTermSimilarity {
 				freq = Math.min(freq, hpoFreq.get(comAns));
 			}
 		}
-		return -Math.log(freq);
-//		return 2*Math.log(freq)/(Math.log(hpoFreq.get(hpo1))+Math.log(hpoFreq.get(hpo2)));
+//		return -Math.log(freq);
+		return 2*Math.log(freq)/(Math.log(hpoFreq.get(hpo1))+Math.log(hpoFreq.get(hpo2)));
 	}
 	/**
 	 * @param args
