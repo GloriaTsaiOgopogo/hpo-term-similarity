@@ -1,3 +1,4 @@
+package com.hpo;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -52,8 +53,8 @@ public class HPOTermSimilarity {
 				freq = Math.min(freq, hpoFreq.get(comAns));
 			}
 		}
-//		return -Math.log(freq);
-		return 2*Math.log(freq)/(Math.log(hpoFreq.get(hpo1))+Math.log(hpoFreq.get(hpo2)));
+		return -Math.log(freq);
+//		return 2*Math.log(freq)/(Math.log(hpoFreq.get(hpo1))+Math.log(hpoFreq.get(hpo2)));
 	}
 	/**
 	 * @param args
@@ -65,7 +66,7 @@ public class HPOTermSimilarity {
 		String file1 = "input/hpo_tree.txt";
 		String file2 = "output/hpo_term50.txt";
 		String file3 = "output/HPOFreq.txt";
-		String ofile = "output/HPOSim.txt";
+		String ofile = "output/HPOSim50.txt";
 		
 		BufferedReader br1 = new BufferedReader(new FileReader(new File(file1)));
 		BufferedReader br2 = new BufferedReader(new FileReader(new File(file2)));

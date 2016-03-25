@@ -1,0 +1,25 @@
+在hp.obo文件中未废弃的共11479个term，其中与至少1个gene关联的共7257个term，至少两个的5948个，至少3个的5279个，至少4个4799个，至少5个4436个，至少10个3401个，
+至少50个1557个。
+
+HPO根节点HP:0000001的孩子节点：
+HP:0012823 Clinical modifier		52
+HP:0000005 Mode of inheritance		26
+HP:0040006 Mortality/Aging			8
+HP:0000118 Phenotypic abnormality	11388(和疾病有关的)
+
+
+
+
+别人的处理方法：
+HPO:大多数都使用OMIM，使用HPO的较少
+《A hierarchical ensemble method for DAG structured taxonomies》选>=50个gene标注的HPO，共911个，gene共20257个，其中2759个与HPO有已知关联
+《Inference of Gene-Phenotype Associations via Protein-Protein Interaction and Orthology》未处理，将OMIM 和 HPO 关联起来
+《PHENOstruct: Prediction of human phenotype ontology terms using heterogeneous data sources》We ignored the global root term (“ALL”) and root terms of the three subontologies. We also removed terms that were not annotated to 10 or more genes.
+Gene:
+《Transfer Learning across Phenotype and Gene Ontologies for Phenome-Genome Association Predicion》Gene-Go PPI Gene-HPO三个数据集的Gene取交集结果2000+gene
+《Predicting Disease Genes Based on Normalized Protein Modules and Phenotype Ontology》和我们的工作有点像,读一读，We constructed a human gene interaction network with 1907 genes and 5694 interactions by selecting genes that exist in both Human Phenotype Ontology database and NCBI Entrez Gene database.
+《HPOSim:Similarity Measure and Enrichment Analysis Based on HPO》使用aging network中的gene去掉了和HPO中的PA分支没有关联的gene，共102个。
+
+候选方法：
+HPO叶节点？ 与OMIM有关的？ 去几个大的分支？ 去除高层的节点？
+Gene使用与HPO有关联或者通过PPI可以连接到HPO的Gene？

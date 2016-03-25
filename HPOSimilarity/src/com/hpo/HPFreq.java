@@ -1,3 +1,4 @@
+package com.hpo;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -43,7 +44,7 @@ public class HPFreq {
 		String file3 = "input/hpo_pair.txt";
 		String file4 = "input/hpo_term.txt";
 		String outfile = "output/HPOFreq.txt";
-		String outfile1 = "output/hpo_term50.txt";
+		String outfile1 = "output/hpo_term2.txt";
 
 		BufferedReader br1 = new BufferedReader(new FileReader(new File(file1)));
 		BufferedReader br3 = new BufferedReader(new FileReader(new File(file3)));
@@ -82,6 +83,7 @@ public class HPFreq {
 			}
 		}
 		getDesc("HP:0000001",hpoChild);
+//		System.out.println(hpoChild.get("HP:0000118"));
 
 		line = "";
 		DecimalFormat df= new DecimalFormat("######0.000000");  
@@ -103,16 +105,19 @@ public class HPFreq {
 		}
 		bw.close();
 
+		
+		int count2 = 0;
 		for(Entry<String, Integer> entry:hpoAnnoNum.entrySet()){
-			if(entry.getValue()>=50){
+			if(entry.getValue()>=2){
 				//修改，PG关联里的HPO term有可能在hp.obo中找不到，删除这些没有的HPO
 				if(hpoTerms.contains(entry.getKey())){
 					bw1.write(entry.getKey()+"\r\n");
+					count2++;
 				}
 			}
 		}
 		bw1.close();
-
+		System.out.println(count2);
 	}
 
 }
