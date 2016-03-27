@@ -8,6 +8,8 @@ HP:0040006 Mortality/Aging			8
 HP:0000118 Phenotypic abnormality	11388(和疾病有关的)
 
 
+与HPO关联的Gene一共3526个，其中3224个也在PPI网络中存在。
+PPI(BioGrid)中共有20362个Gene。
 
 
 别人的处理方法：
@@ -19,6 +21,7 @@ Gene:
 《Transfer Learning across Phenotype and Gene Ontologies for Phenome-Genome Association Predicion》Gene-Go PPI Gene-HPO三个数据集的Gene取交集结果2000+gene
 《Predicting Disease Genes Based on Normalized Protein Modules and Phenotype Ontology》和我们的工作有点像,读一读，We constructed a human gene interaction network with 1907 genes and 5694 interactions by selecting genes that exist in both Human Phenotype Ontology database and NCBI Entrez Gene database.
 《HPOSim:Similarity Measure and Enrichment Analysis Based on HPO》使用aging network中的gene去掉了和HPO中的PA分支没有关联的gene，共102个。
+
 
 候选方法：
 HPO叶节点？ 与OMIM有关的？ 去几个大的分支？ 去除高层的节点？
